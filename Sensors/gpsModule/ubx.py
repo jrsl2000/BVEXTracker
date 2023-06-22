@@ -6492,7 +6492,7 @@ High Precision GNSS products only."""
                 print("%s\n" % s_payload)
                 #print(m_class)
                 
-                return [consumed, clas, ident]
+                return consumed
 
             # give up
             state = 'BASE'
