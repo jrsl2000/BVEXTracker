@@ -1,12 +1,8 @@
 #!/usr/bin/python3
 from gps import ubx
-
-import time
-"""
-Can sample at 20 Hz, change sampling of gpsd by typing "gpsctl -c 0.05" in terminal
-"""
-
 from time import sleep
+from numpy import save
+from math import floor
 import threading
 
 
