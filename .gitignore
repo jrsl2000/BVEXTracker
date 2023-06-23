@@ -2,3 +2,5 @@ old/
 *.swp
 gitSSH
 gitSSH.pub
+output/
+
