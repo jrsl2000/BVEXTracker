@@ -21,6 +21,7 @@ for sensor in sensor_list:
 
 sleep(60)
 print("saving...")
+
 for sensor in sensor_list:
     sensor.save_data()
 

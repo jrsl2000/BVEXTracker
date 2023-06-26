@@ -9,20 +9,10 @@ try:
 except:
 	import adafruit_bno055 as bno055
 
-# function to get rid of nested lists        
-def flatten_list(_list):
-	flat_list = []
-	for element in _list:
-		if hasattr(element, '__iter__'): # if the item is iterable
-			for item in element:
-				flat_list.append(item)
-		else:
-			flat_list.append(element)
-	return flat_list
-
 class IMU:
 	def __init__(self, Write_Directory):
-		self.wd = Write_Directory
+		self.wd = Write_Directory # write directory
+		self.wf = None # write file
 		self.thread = None
 		self.alive = True
 		self.ih = bno055.BNO055_I2C(I2C(1)) # ih = interface handler

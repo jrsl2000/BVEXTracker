@@ -35,7 +35,6 @@ class Gyro:
 
 	def save_data(self):
 		self.kill()
-		self.thread.join()
 
 		assert self.t0 > 0 # make sure data has been collected
 		save(self.wd + str(floor(self.t0)), self.data)

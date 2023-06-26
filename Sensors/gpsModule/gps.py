@@ -346,7 +346,7 @@ class gps_io(object):
        raw: file descriptor like object (has to support the .write method)
             to dump raw data. None if not used
 """
-
+        
         # are we expecting a certain message?
         if expect_statement_identifier:
             # assume failure, until we see expected message
