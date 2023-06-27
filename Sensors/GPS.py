@@ -13,7 +13,7 @@ class Gps:
 		self.wd = Write_Directory
 		self.thread = Thread(target=self.run, args=())
 		self.alive = True
-		self.gpsio = gps_io(input_speed=38400)
+		self.gpsio = gps_io(input_speed=115200) # configured the gps to 115200 baudrate
 		self.ih = ubx.ubx()
 		self.data = []
 
@@ -30,21 +30,18 @@ class Gps:
 
 	def run(self):
 		while self.alive:
-			data += self.read()
-			print(report)
-			sleep(1)
+			self.data += [self.read()]
+			print(self.data)
 
 	def read(self):
 		out = None
 		while out == None:
-			out = self.gpsio.ser.sock.recv(8192)
+			out = self.gpsio.read(self.ih.decode_msg)
 		return out
-
-	def test(self):
 
 
 if __name__ == "__main__":
 	test = Gps("asd")
 	test.begin()
-
-	
+	sleep(1)
+	test.kill()
